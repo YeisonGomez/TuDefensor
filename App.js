@@ -6,11 +6,11 @@ import Login from './src/scenes/Login/Login';
 import Signup from './src/scenes/Signup/Signup';
  
 const MainNavigator = createStackNavigator({
-  Signup: {screen: Signup},
   Home: {
     screen: Home,
     navigationOptions: { header: null }
   },
+  Signup: {screen: Signup},
   Login: {screen: Login},
 });
 

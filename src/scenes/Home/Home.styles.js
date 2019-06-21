@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: 2000,
     backgroundColor: 'white',
   },
   title: {
@@ -10,26 +10,36 @@ export default styles = StyleSheet.create({
     textAlign: 'center',
     margin: 18,
     fontWeight: '900',
-    color: '#ffff'
+    color: '#ffff',
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: 70
   },
-  containerDrop: {
-    flex: 1,
-    backgroundColor: '#FAFAFA',
+  signupText: {
+    fontSize: 18,
+    textAlign: 'center',
+    margin: 18,
+    fontWeight: '100',
+    color: '#ffff',
+    width: 70
   },
   panel: {
-    flex: 1,
     backgroundColor: '#fff',
     borderTopLeftRadius: 38,
     borderTopRightRadius: 38,
     paddingHorizontal: 35,
-    paddingTop: 35
+    paddingTop: 28
   },
   panelHeader: {
     height: 50,
-    flex: 1, backgroundColor: '#A1A1A1',
+    flex: 1,
+    backgroundColor: '#363c44',
     flexDirection: "column",
     textAlign: "center",
     paddingTop: 20,
+  },
+  section: {
+    flexDirection: "column"
   },
   sectionTitle: {
     color: "#333",

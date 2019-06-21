@@ -24,7 +24,7 @@ const RNApp = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'signup'
+    initialRouteName: 'newsContacts'
   }
 );
 

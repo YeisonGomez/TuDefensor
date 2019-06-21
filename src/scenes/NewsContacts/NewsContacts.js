@@ -8,55 +8,59 @@ export default class NewsContacts extends Component {
 
   state = { phones: [''] };
 
-  componentWillMount() { 
+  componentWillMount() {
   }
 
-  handleAddPhone(){
-    this.setState({ phones: [ ...this.state.phones, '' ] })
+  handleAddPhone() {
+    this.setState({ phones: [...this.state.phones, ''] })
   }
 
-  handleRemovePhone(index){    
+  handleRemovePhone(index) {
     let temp_phones = this.state.phones;
     temp_phones.splice(index, 1);
     this.setState({ phones: temp_phones })
   }
 
-  handleChangeInput(value, index){
+  handleChangeInput(value, index) {
     let temp = this.state.phones;
     temp[index] = value;
     this.setState({ phones: temp });
   }
 
-  next(){
+  next() {
     console.log(this.state.phones);
     NavigationService.navigate('home');
   }
 
   render() {
-    const { phones } = this.state;
+    const { phones } = this.state;
 
     return (
-      <Container style={styles.container}>
-        <Content>
+      <Container style={{ backgroundColor: "#363c44", justifyContent: "center" }}>
+        <Content style={{ backgroundColor: "#fff", marginVertical: 20, marginHorizontal: 20, borderRadius: 20, paddingVertical: 15, paddingHorizontal: 15 }}>
+          <Text style={{ fontWeight: "bold", fontSize: 22, color: "#333", marginVertical: 10 }}>Contactos de confianza</Text>
+          <Text style={{ fontWeight: "100", fontSize: 16, color: "#A3A3A3", marginVertical: 20, marginHorizontal: 20 }}>Tus contactos de confianza recibiran SMS de alerta en caso de situaciones de potencial riesgo</Text>
           <Form>
-            { phones.map((phone, index) => 
-              <View key={index}> 
+            {phones.map((phone, index) =>
+              <View key={index}>
                 <Item>
-                  <Input type="number" placeholder="Número de confianza" onChangeText={(value) => this.handleChangeInput(value)}/>
-                { index !== 0 && <Button light onPress={() => this.handleRemovePhone(index) }><Text>Eliminar</Text></Button> }
+                  <Input type="number" placeholder="Número de confianza" onChangeText={(value) => this.handleChangeInput(value)} />
+                  {index !== 0 && <Button light onPress={() => this.handleRemovePhone(index)}><Text>Eliminar</Text></Button>}
                 </Item>
               </View>
             )}
-            <Button light onPress={() => this.handleAddPhone() }><Text>Añadir</Text></Button>
-
+            <View style={{ marginHorizontal: "auto", flexDirection: "row", justifyContent: "center", marginVertical: 10 }}>
+              <Button light onPress={() => this.handleAddPhone()}><Text>Añadir</Text></Button>
+            </View>
             <Item>
               <Input type="text" placeholder="Mensaje personalizado" />
             </Item>
           </Form>
-
-          <Button light onPress={() => this.next() }><Text>Registrar</Text></Button>
+          <View style={{ marginHorizontal: "auto", flexDirection: "row", justifyContent: "center", marginVertical: 10 }}>
+            <Button style={{ marginHorizontal: "auto", justifyContent: "center" }} light onPress={() => this.next()}><Text>Registrar</Text></Button>
+          </View>
         </Content>
-      </Container>
+      </Container >
     );
   }
 }

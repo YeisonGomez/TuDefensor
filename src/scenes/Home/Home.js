@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import BackgroundGeolocation from "react-native-background-geolocation";
 
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, StatusBar, TouchableOpacity } from 'react-native';
+
+import styles from './Home.styles';
 
 export default class Home extends Component {
 
@@ -9,8 +11,8 @@ export default class Home extends Component {
     sharedGeolocation: false
   };
 
-  async componentWillMount() { 
-    this.setState({sharedGeolocation: await BackgroundGeolocation.getState().enabled});
+  async componentWillMount() {
+    this.setState({ sharedGeolocation: await BackgroundGeolocation.getState().enabled });
   }
 
   componentWillUnmount() {
@@ -72,7 +74,7 @@ export default class Home extends Component {
     console.log('[activitychange] -', event);  // eg: 'on_foot', 'still', 'in_vehicle'
   }
 
-  onProviderChange(provider) { 
+  onProviderChange(provider) {
     console.log('[providerchange] -', provider.enabled, provider.status);
   }
 
@@ -85,17 +87,23 @@ export default class Home extends Component {
 
     return (
       <View style={styles.container}>
-        <Button title={`${!sharedGeolocation? 'Activar': 'Desactivar' } Geolocalización`} onPress={() => this.onSharedGeolocation(!sharedGeolocation)}/>
+        <StatusBar backgroundColor="#B01D1D" barStyle="light-content" />
+        <View style={styles.panelHeader}>
+          <Text style={styles.title}>Home</Text>
+          <View style={styles.panel} >
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Tu zona</Text>
+              <Text style={styles.sectionSubTitle}>Basados en tu ubicación</Text>
+              <Text style={[styles.sectionCopy, styles['sectionCopy--empty']]}>Recuerda que tu ubicación no se comparte hasta que tu lo decidas</Text>
+              <TouchableOpacity style={styles.btnShareLocation} onPress={() => this.onSharedGeolocation(!sharedGeolocation)} >
+                <Text style={styles.btnShareLocation__text}>{!sharedGeolocation ? 'Compartir mi' : 'Dejar de compartir'} Ubicación</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
+

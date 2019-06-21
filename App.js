@@ -4,7 +4,10 @@ import {createStackNavigator, createAppContainer} from 'react-navigation';
 import Home from './src/scenes/Home/Home';
  
 const MainNavigator = createStackNavigator({
-  Home: {screen: Home} 
+  Home: {
+    screen: Home,
+    navigationOptions: { header: null }
+  } 
 });
 
 const App = createAppContainer(MainNavigator);

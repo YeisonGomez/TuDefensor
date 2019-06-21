@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Form, Item, Input, Icon, Content, Button, Text, Picker } from 'native-base';
 import AuthActions from '../../services/auth/authReducer';
-import { Platform, StyleSheet, StatusBar, TouchableOpacity, Image } from 'react-native';
+import { StatusBar } from 'react-native';
+import navigation from '../../navigation/NavigationService';
 
 class Signup extends Component {
 
@@ -73,6 +74,9 @@ class Signup extends Component {
           </Form>
           <Button style={{ backgroundColor: "#EBEDF0", color: "#333", padding: 16, borderRadius: 10, marginVertical: 15 }} block onPress={() => this.handleSignup()}>
             <Text style={{color: "#333"}}>Registrase</Text>
+          </Button>
+          <Button style={{ backgroundColor: "#FFF", color: "#333", padding: 16, borderRadius: 10, marginVertical: 15 }} block onPress={() => navigation.navigate('newsContacts')}>
+            <Text style={{color: "#333"}}>Omitir</Text>
           </Button>
         </Content>
       </Container>

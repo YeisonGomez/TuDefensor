@@ -13,7 +13,7 @@ export default Creators
 
 /* ------------- Initial State ------------ - */
 export const INITIAL_STATE = Map({
-  error: false, goodies: null
+  error: false
 })
 
 const signupSuccess = (state = INITIAL_STATE, action) => {

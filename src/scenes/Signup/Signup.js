@@ -31,7 +31,7 @@ class Signup extends Component {
               <Input id="name" type="text" placeholder="Nombres" onChangeText={(e) => this.handleChangeInput(e, 'name')} />
             </Item>
             <Item last>
-              <Input id="lastname" type="text" placeholder="Apellidos" onChangeText={(e) => this.handleChangeInput(e, 'lastname')}/>
+              <Input id="lastName" type="text" placeholder="Apellidos" onChangeText={(e) => this.handleChangeInput(e, 'lastName')}/>
             </Item>
             <Item last>
               <Input id="dni" type="text" placeholder="Cédula" onChangeText={(e) => this.handleChangeInput(e, 'dni')}/>

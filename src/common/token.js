@@ -1,37 +1,34 @@
 const jwtDecode = require('jwt-decode');
+import {AsyncStorage} from 'react-native';
 
 export class Token {
 
-    decode = () => {
+    async decode() {
         try {
-            return jwtDecode(localStorage.getItem('token'));
+            return jwtDecode(await AsyncStorage.getItem('@auth:token'));
         } catch (e) {
             return undefined;
         }
     }
 
-    isTokenValid = () => {
+    async isTokenValid() {
         try {
-            return jwtDecode(localStorage.getItem('token')) !== undefined;
+            return jwtDecode(await AsyncStorage.getItem('@auth:token')) !== undefined;
         } catch (e) {
             return false;
         }
     };
 
-    getToken() {
-        return localStorage.getItem('token');
-    }
-
-    getUser() {
-        return jwtDecode(localStorage.getItem('token'))
+    async getToken() {
+        return await AsyncStorage.getItem('@auth:token');
     }
 
     async setToken(token) {
-        return await localStorage.setItem('token', token);
+        return await AsyncStorage.setItem('@auth:token', token);
     }
 
-    destroyToken() {
-        localStorage.removeItem('token');
+    async destroyToken() {
+        await AsyncStorage.removeItem('@auth:token');
     }
 }
 

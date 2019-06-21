@@ -3,7 +3,7 @@ import { Map } from 'immutable'
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
-  signup: [],
+  signup: ['payload'],
   signupSuccess: [],
   signupFailed: ['error']
 })

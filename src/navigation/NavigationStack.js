@@ -19,7 +19,7 @@ const RNApp = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'home'
+    initialRouteName: 'signup'
   }
 );
 

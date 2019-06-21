@@ -120,7 +120,7 @@ export default class Home extends Component {
             <View style={{ flexDirection: "row" }}>
               <Text style={styles.signupText}>Acceder</Text>
               <Text style={styles.title}>Home</Text>
-              <Text style={styles.signupText} onPress={this.showActionSheet}>más</Text>
+              <Text style={styles.signupText} onPress={this.showActionSheet}>Más</Text>
               <Modal isVisible={this.state.isVisible}
                 onSwipeComplete={() => this.setState({ isVisible: false })}
                 onBackdropPress={() => this.toggleModal()}
@@ -165,7 +165,7 @@ export default class Home extends Component {
                     <List>
                       <ListItem style={{ justifyContent: "space-between" }} >
                         <View>
-                          <Text style={{ fontWeight: "100", fontSize: 12, color: "#666" }}>zona de poco riesgo </Text>
+                          <Text style={{ fontWeight: "100", fontSize: 12, color: "#666" }}>Zona de poco riesgo </Text>
                           <Text>Bogotá, Colombia </Text>
                         </View>
                         <View>

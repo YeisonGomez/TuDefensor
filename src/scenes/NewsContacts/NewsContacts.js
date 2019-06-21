@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { Container, Content, Form, Item, Input, Button, Text } from 'native-base';
 import { StyleSheet, View } from 'react-native';
+import NavigationService from '../../navigation/NavigationService';
 
 export default class NewsContacts extends Component {
 
@@ -20,6 +21,17 @@ export default class NewsContacts extends Component {
     this.setState({ phones: temp_phones })
   }
 
+  handleChangeInput(value, index){
+    let temp = this.state.phones;
+    temp[index] = value;
+    this.setState({ phones: temp });
+  }
+
+  next(){
+    console.log(this.state.phones);
+    NavigationService.navigate('home');
+  }
+
   render() {
     const { phones } = this.state;
 
@@ -28,9 +40,9 @@ export default class NewsContacts extends Component {
         <Content>
           <Form>
             { phones.map((phone, index) => 
-              <View key={index}>
+              <View key={index}> 
                 <Item>
-                  <Input type="number" placeholder="Número de confianza"  />
+                  <Input type="number" placeholder="Número de confianza" onChangeText={(value) => this.handleChangeInput(value)}/>
                 { index !== 0 && <Button light onPress={() => this.handleRemovePhone(index) }><Text>Eliminar</Text></Button> }
                 </Item>
               </View>
@@ -41,6 +53,8 @@ export default class NewsContacts extends Component {
               <Input type="text" placeholder="Mensaje personalizado" />
             </Item>
           </Form>
+
+          <Button light onPress={() => this.next() }><Text>Registrar</Text></Button>
         </Content>
       </Container>
     );

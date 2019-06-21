@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Form, Item, Input, Icon, Content, Button, Text, Picker } from 'native-base';
+import { Container, Form, Item, Input, Content, Button, Text, Picker } from 'native-base';
 import AuthActions from '../../services/auth/authReducer';
 import { Platform, StyleSheet, StatusBar, TouchableOpacity, Image } from 'react-native';
 
@@ -52,10 +52,8 @@ class Signup extends Component {
               <Picker
                 mode="dropdown"
                 style={{ width: undefined }}
-                iosIcon={<Icon name="arrow-down" />}
                 placeholder="Selecciona una causa"
                 placeholderStyle={{ color: "#bfc6ea" }}
-                placeholderIconColor="#007aff"
                 selectedValue={form.cause}
                 onValueChange={(value) => this.handleChangeInput(value, 'cause')}
               >
